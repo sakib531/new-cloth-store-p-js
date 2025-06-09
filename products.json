@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "img": "new-cloths-images/images.jpeg",
+    "name": "Blanche Pearson",
+    "title": "Sales Manager",
+    "price": 25
+  },
+  {
+    "id": 2,
+    "img": "new-cloths-images/website.jpg",
+    "name": "Blanche Pearson",
+    "title": "Sales Manager",
+    "price": 30
+  },
+  {
+    "id": 3,
+    "img": "new-cloths-images/garden-rose-red-pink-56866.jpeg",
+    "name": "Blanche Pearson",
+    "title": "Sales Manager",
+    "price": 20
+  },
+  {
+    "id": 4,
+    "img": "new-cloths-images/how-to-generate.webp",
+    "name": "Blanche Pearson",
+    "title": "Sales Manager",
+    "price": 18
+  },
+  {
+    "id": 5,
+    "img": "new-cloths-images/pexels-photo-1108099.jpeg",
+    "name": "Blanche Pearson",
+    "title": "Sales Manager",
+    "price": 35
+  },
+  {
+    "id": 6,
+    "img": "new-cloths-images/text-to-image.webp",
+    "name": "Blanche Pearson",
+    "title": "Sales Manager",
+    "price": 22
+  },
+  {
+    "id": 7,
+    "img": "new-cloths-images/pexels-photo-3680219.jpeg",
+    "name": "Blanche Pearson",
+    "title": "Sales Manager",
+    "price": 28
+  },
+  {
+    "id": 8,
+    "img": "new-cloths-images/premium_photo-1664474619075-644dd191935f.jpeg",
+    "name": "Blanche Pearson",
+    "title": "Sales Manager",
+    "price": 40
+  },
+  {
+    "id": 9,
+    "img": "new-cloths-images/images (1).jpeg",
+    "name": "Blanche Pearson",
+    "title": "Sales Manager",
+    "price": 26
+  }
+]
