@@ -1,3 +1,17 @@
+let products = [];
+let cart = [];
+
+const carousel = document.querySelector(".carousel") || null;
+const wrapper = document.querySelector(".wrapper") || null;
+const listCartHTML = document.querySelector(".listCart");
+const iconCart = document.querySelector(".icon-cart");
+const iconCartSpan = document.querySelector(".icon-cart span");
+const body = document.querySelector("body");
+const cartTab = document.querySelector(".cartTab");
+const header = document.getElementById("smart-header");
+const closeCart = document.querySelector(".close");
+
+// === PRODUCT DESCRIPTION PAGE LOGIC ===
 document.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname.includes("product-description.html")) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -27,61 +41,35 @@ document.addEventListener("DOMContentLoaded", () => {
           console.error("Error loading product:", error);
           document.querySelector(".products-details").innerHTML = "<h2>Error loading product data</h2>";
         });
+
+      // Cart integration for product-description
+      fetch("products.json")
+        .then(res => res.json())
+        .then(data => {
+          products = data;
+
+          // Load cart
+          if (localStorage.getItem("cart")) {
+            cart = JSON.parse(localStorage.getItem("cart"));
+            updateCart();
+          }
+
+          const product = products.find(p => p.id == productId);
+          if (product) {
+            const addToCartBtn = document.getElementById("addToCartBtn");
+            if (addToCartBtn) {
+              addToCartBtn.addEventListener("click", () => {
+                addToCart(product.id);
+              });
+            }
+          }
+        });
     }
   }
 });
 
-if (window.location.pathname.includes("product-description.html")) {
-  const urlParams = new URLSearchParams(window.location.search);
-  const productId = urlParams.get("id");
-
-  fetch("products.json")
-    .then(res => res.json())
-    .then(data => {
-      products = data;
-
-      // Load cart from localStorage
-      if (localStorage.getItem("cart")) {
-        cart = JSON.parse(localStorage.getItem("cart"));
-        updateCart();
-      }
-
-      const product = products.find(p => p.id == productId);
-      if (product) {
-        const addToCartBtn = document.getElementById("addToCartBtn");
-        if (addToCartBtn) {
-          addToCartBtn.addEventListener("click", () => {
-            addToCart(product.id);
-          });
-        }
-      }
-    });
-}
-
-
-
-
-let products = [];
-let cart = [];
-
-const carousel = document.querySelector(".carousel") || null;
-const wrapper = document.querySelector(".wrapper") || null;
-
-if (carousel && wrapper) {
-  initCarousel();
-}
-
-const listCartHTML = document.querySelector(".listCart");
-const iconCart = document.querySelector(".icon-cart");
-const iconCartSpan = document.querySelector(".icon-cart span");
-const body = document.querySelector("body");
-const cartTab = document.querySelector(".cartTab");
-const header = document.getElementById("smart-header");
-const closeCart = document.querySelector(".close");
-
-// Fetch product data from JSON
+// === CAROUSEL HOMEPAGE LOGIC ===
 if (document.querySelector(".carousel")) {
-  // Only run carousel logic on homepage or where carousel exists
   fetch("products.json")
     .then(res => res.json())
     .then(data => {
@@ -113,7 +101,6 @@ function addDataToHTML() {
       <button class="addCart">Add To Cart</button>
     `;
 
-    // Add to cart button
     const addCartBtn = card.querySelector(".addCart");
     addCartBtn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -129,7 +116,6 @@ function addDataToHTML() {
 function setupCarouselClickHandler() {
   let isDragging = false;
 
-  // Track drag state globally on the carousel
   carousel.addEventListener("mousedown", () => {
     isDragging = false;
     const onMouseMove = () => (isDragging = true);
@@ -141,7 +127,6 @@ function setupCarouselClickHandler() {
     window.addEventListener("mouseup", onMouseUp);
   });
 
-  // Handle card clicks (only if not dragging)
   const cards = carousel.querySelectorAll(".card");
   cards.forEach(card => {
     card.addEventListener("click", (e) => {
@@ -187,15 +172,6 @@ function updateCart() {
   iconCartSpan.innerText = total;
 }
 
-if (carousel) {
-  carousel.addEventListener("click", e => {
-    if (e.target.classList.contains("addCart")) {
-      const id = e.target.closest(".card").dataset.id;
-      addToCart(id);
-    }
-  });
-}
-
 listCartHTML.addEventListener("click", e => {
   const id = e.target.closest(".item")?.dataset.id;
   const item = cart.find(i => i.product_id == id);
@@ -213,7 +189,7 @@ listCartHTML.addEventListener("click", e => {
   localStorage.setItem("cart", JSON.stringify(cart));
 });
 
-// Cart open/close
+// === CART TOGGLE ===
 iconCart.addEventListener("click", () => {
   body.classList.toggle("showCart");
 });
@@ -221,7 +197,7 @@ closeCart.addEventListener("click", () => {
   body.classList.remove("showCart");
 });
 
-// HEADER SCROLL LOGIC
+// === HEADER SCROLL HIDE/SHOW ===
 let lastScrollY = window.scrollY;
 function updateHeaderVisibility() {
   const currentScrollY = window.scrollY;
@@ -234,7 +210,7 @@ function updateHeaderVisibility() {
 }
 window.addEventListener('scroll', updateHeaderVisibility);
 
-// REAL-TIME SYNC FOR CART POSITION
+// === SYNC CART WITH HEADER POSITION ===
 function syncCartWithHeader() {
   const headerHeight = header.offsetHeight;
 
@@ -264,14 +240,22 @@ window.addEventListener('load', () => {
   syncCartWithHeader();
 });
 
-// CAROUSEL
+// === CAROUSEL INIT FUNCTION ===
 function initCarousel() {
   const wrapper = document.querySelector(".wrapper");
   const arrowBtns = document.querySelectorAll(".wrapper i");
-  const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+
+  const firstCard = carousel.querySelector(".card");
+  if (!firstCard) {
+    console.warn("initCarousel: No .card found inside .carousel");
+    return;
+  }
+
+  const firstCardWidth = firstCard.offsetWidth;
   const carouselChildren = [...carousel.children];
   const cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
 
+  // Clone for infinite scroll
   carouselChildren.slice(-cardPerView).reverse().forEach(card => {
     carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
   });
@@ -279,12 +263,14 @@ function initCarousel() {
     carousel.insertAdjacentHTML("beforeend", card.outerHTML);
   });
 
+  // Arrows
   arrowBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       carousel.scrollLeft += btn.id === "left" ? -firstCardWidth : firstCardWidth;
     });
   });
 
+  // Drag scroll
   let isDragging = false, startX, startScrollLeft;
   let timeoutId;
 
@@ -305,6 +291,7 @@ function initCarousel() {
     carousel.classList.remove("dragging");
   };
 
+  // Auto-scroll and infinite loop
   const autoPlay = () => {
     if (window.innerWidth < 800) return;
     timeoutId = setTimeout(() => {
@@ -332,6 +319,6 @@ function initCarousel() {
   carousel.addEventListener("scroll", infiniteScroll);
   wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
   wrapper.addEventListener("mouseleave", autoPlay);
+
   autoPlay();
 }
-
