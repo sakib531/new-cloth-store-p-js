@@ -814,3 +814,298 @@ body.showCart .container{
 .card button.addCart {
   cursor: default;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.product-page{
+    margin-top: 70px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.listProduct {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.product-card {
+  width: 240px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  /* box shadow for subtle depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.product-card:hover {
+  /* stronger shadow and slight scale on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+}
+
+.product-page-img {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #eee;
+}
+
+.product-page-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-page-img img {
+  transform: scale(1.05);
+}
+
+.product-card > div:last-child {
+  padding: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card h2 {
+  font-size: 1.2rem;
+  margin: 0 0 6px 0;
+  color: #222;
+}
+
+.product-card span {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.product-card button.addCart {
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  align-self: stretch;
+}
+
+.product-card button.addCart:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container for Search + Tags */
+.filter-bar {
+  position: sticky;
+  top: 0; /* sticks at the top of the viewport */
+  background: white; /* ensure background covers content behind */
+  z-index: 100; /* above other content */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+/* Tag buttons container on left */
+#tag-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Search input on right */
+#search-input {
+  padding: 8px 14px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 220px;
+  max-width: 40vw;
+}
+
+
+#tag-buttons button {
+  padding: 8px 14px;
+  border: 1px solid #aaa;
+  border-radius: 20px;
+  background-color: white;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#tag-buttons button:hover {
+  background-color: #f0f0f0;
+}
+
+#tag-buttons .active-tag {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* Search Bar */
+#search-input {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  max-width: 300px;
+  width: 100%;
+}
+
+/* Pagination Controls */
+#pagination-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+#pagination-controls a {
+  padding: 6px 12px;
+  text-decoration: none;
+  color: #007bff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#pagination-controls a:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+#pagination-controls span {
+  padding: 6px 12px;
+  color: #888;
+  font-size: 14px;
+  user-select: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tags {
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+}

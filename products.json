@@ -1,65 +1,52 @@
 [
-  {
-    "id": 1,
-    "img": "new-cloths-images/images.jpeg",
-    "name": "Blanche Pearson",
-    "title": "Sales Manager",
-    "price": 25
-  },
-  {
-    "id": 2,
-    "img": "new-cloths-images/website.jpg",
-    "name": "Blanche Pearson",
-    "title": "Sales Manager",
-    "price": 30
-  },
-  {
-    "id": 3,
-    "img": "new-cloths-images/garden-rose-red-pink-56866.jpeg",
-    "name": "Blanche Pearson",
-    "title": "Sales Manager",
-    "price": 20
-  },
-  {
-    "id": 4,
-    "img": "new-cloths-images/how-to-generate.webp",
-    "name": "Blanche Pearson",
-    "title": "Sales Manager",
-    "price": 18
-  },
-  {
-    "id": 5,
-    "img": "new-cloths-images/pexels-photo-1108099.jpeg",
-    "name": "Blanche Pearson",
-    "title": "Sales Manager",
-    "price": 35
-  },
-  {
-    "id": 6,
-    "img": "new-cloths-images/text-to-image.webp",
-    "name": "Blanche Pearson",
-    "title": "Sales Manager",
-    "price": 22
-  },
-  {
-    "id": 7,
-    "img": "new-cloths-images/pexels-photo-3680219.jpeg",
-    "name": "Blanche Pearson",
-    "title": "Sales Manager",
-    "price": 28
-  },
-  {
-    "id": 8,
-    "img": "new-cloths-images/premium_photo-1664474619075-644dd191935f.jpeg",
-    "name": "Blanche Pearson",
-    "title": "Sales Manager",
-    "price": 40
-  },
-  {
-    "id": 9,
-    "img": "new-cloths-images/images (1).jpeg",
-    "name": "Blanche Pearson",
-    "title": "Sales Manager",
-    "price": 26
-  }
+  {"id":1,"img":"new-cloths-images/images.jpeg","name":"Classic Crew Neck","title":"Casual Tee","price":25,"tags":["New","Popular","t-shirt"]},
+  {"id":2,"img":"new-cloths-images/website.jpg","name":"Vintage Graphic","title":"Graphic Tee","price":30,"tags":["Sale","Trending","t-shirt"]},
+  {"id":3,"img":"new-cloths-images/garden-rose-red-pink-56866.jpeg","name":"Slim Fit V-Neck","title":"V-Neck Tee","price":20,"tags":["Budget","t-shirt"]},
+  {"id":4,"img":"new-cloths-images/how-to-generate.webp","name":"Organic Cotton","title":"Eco-Friendly Tee","price":18,"tags":["Limited","Hot","Exclusive","t-shirt"]},
+  {"id":5,"img":"new-cloths-images/pexels-photo-1108099.jpeg","name":"Pocket Tee","title":"Casual Wear","price":35,"tags":["Eco-Friendly","Best Seller","t-shirt"]},
+  {"id":6,"img":"new-cloths-images/text-to-image.webp","name":"Striped Tee","title":"Summer Style","price":22,"tags":["Trending","t-shirt"]},
+  {"id":7,"img":"new-cloths-images/pexels-photo-3680219.jpeg","name":"Long Sleeve","title":"Layering Tee","price":28,"tags":["New","Popular","t-shirt"]},
+  {"id":8,"img":"new-cloths-images/premium_photo-1664474619075-644dd191935f.jpeg","name":"Performance Tee","title":"Athletic Wear","price":40,"tags":["Sale","t-shirt"]},
+  {"id":9,"img":"new-cloths-images/images (1).jpeg","name":"Henley Shirt","title":"Buttoned Tee","price":26,"tags":["Hot","Limited","t-shirt"]},
+  {"id":10,"img":"new-cloths-images/images.jpeg","name":"Graphic Logo","title":"Brand Tee","price":27,"tags":["Budget","Eco-Friendly","t-shirt"]},
+  {"id":11,"img":"new-cloths-images/website.jpg","name":"Raglan Sleeve","title":"Sporty Tee","price":23,"tags":["New","t-shirt"]},
+  {"id":12,"img":"new-cloths-images/garden-rose-red-pink-56866.jpeg","name":"Retro Print","title":"Vintage Tee","price":31,"tags":["Sale","Exclusive","t-shirt"]},
+  {"id":13,"img":"new-cloths-images/how-to-generate.webp","name":"Basic Cotton","title":"Everyday Tee","price":19,"tags":["Budget","Trending","t-shirt"]},
+  {"id":14,"img":"new-cloths-images/pexels-photo-1108099.jpeg","name":"Tie Dye","title":"Festival Tee","price":34,"tags":["Hot","t-shirt"]},
+  {"id":15,"img":"new-cloths-images/text-to-image.webp","name":"Heather Grey","title":"Soft Tee","price":24,"tags":["Eco-Friendly","t-shirt"]},
+  {"id":16,"img":"new-cloths-images/pexels-photo-3680219.jpeg","name":"Muscle Fit","title":"Fitted Tee","price":29,"tags":["New","Popular","t-shirt"]},
+  {"id":17,"img":"new-cloths-images/premium_photo-1664474619075-644dd191935f.jpeg","name":"Sports Mesh","title":"Active Tee","price":38,"tags":["Sale","Limited","t-shirt"]},
+  {"id":18,"img":"new-cloths-images/images (1).jpeg","name":"Oversized Tee","title":"Relaxed Fit","price":21,"tags":["Trending","t-shirt"]},
+  {"id":19,"img":"new-cloths-images/images.jpeg","name":"Vintage Wash","title":"Washed Tee","price":25,"tags":["Best Seller","t-shirt"]},
+  {"id":20,"img":"new-cloths-images/website.jpg","name":"Crop Top","title":"Trendy Tee","price":27,"tags":["New","Hot","t-shirt"]},
+  {"id":21,"img":"new-cloths-images/garden-rose-red-pink-56866.jpeg","name":"Basic V-Neck","title":"Classic Tee","price":22,"tags":["Budget","t-shirt"]},
+  {"id":22,"img":"new-cloths-images/how-to-generate.webp","name":"Eco Blend","title":"Sustainable Tee","price":33,"tags":["Exclusive","Eco-Friendly","t-shirt"]},
+  {"id":23,"img":"new-cloths-images/pexels-photo-1108099.jpeg","name":"Pocket V-Neck","title":"Casual V-Neck","price":19,"tags":["Sale","t-shirt"]},
+  {"id":24,"img":"new-cloths-images/text-to-image.webp","name":"Graphic Muscle","title":"Athletic Tee","price":35,"tags":["Trending","t-shirt"]},
+  {"id":25,"img":"new-cloths-images/pexels-photo-3680219.jpeg","name":"Color Block","title":"Fashion Tee","price":26,"tags":["Popular","t-shirt"]},
+  {"id":26,"img":"new-cloths-images/premium_photo-1664474619075-644dd191935f.jpeg","name":"Classic Polo","title":"Smart Casual","price":29,"tags":["New","Hot","t-shirt"]},
+  {"id":27,"img":"new-cloths-images/images (1).jpeg","name":"Thermal Tee","title":"Winter Wear","price":37,"tags":["Limited","t-shirt"]},
+  {"id":28,"img":"new-cloths-images/images.jpeg","name":"Slub Cotton","title":"Textured Tee","price":24,"tags":["Budget","Eco-Friendly","t-shirt"]},
+  {"id":29,"img":"new-cloths-images/website.jpg","name":"Baseball Tee","title":"Sporty Style","price":31,"tags":["Sale","t-shirt"]},
+  {"id":30,"img":"new-cloths-images/garden-rose-red-pink-56866.jpeg","name":"Sleeveless Tee","title":"Summer Tee","price":20,"tags":["Trending","t-shirt"]},
+  {"id":31,"img":"new-cloths-images/how-to-generate.webp","name":"Pocket Henley","title":"Casual Henley","price":28,"tags":["Popular","t-shirt"]},
+  {"id":32,"img":"new-cloths-images/pexels-photo-1108099.jpeg","name":"Soft Jersey","title":"Comfort Tee","price":36,"tags":["New","t-shirt"]},
+  {"id":33,"img":"new-cloths-images/text-to-image.webp","name":"Printed Logo","title":"Brand Tee","price":23,"tags":["Sale","Exclusive","t-shirt"]},
+  {"id":34,"img":"new-cloths-images/pexels-photo-3680219.jpeg","name":"Heather Blue","title":"Soft Wash","price":30,"tags":["Hot","t-shirt"]},
+  {"id":35,"img":"new-cloths-images/premium_photo-1664474619075-644dd191935f.jpeg","name":"Ringer Tee","title":"Retro Style","price":25,"tags":["Trending","t-shirt"]},
+  {"id":36,"img":"new-cloths-images/images (1).jpeg","name":"Textured Knit","title":"Patterned Tee","price":22,"tags":["Budget","Popular","t-shirt"]},
+  {"id":37,"img":"new-cloths-images/images.jpeg","name":"Soft Cotton","title":"Everyday Wear","price":34,"tags":["New","t-shirt"]},
+  {"id":38,"img":"new-cloths-images/website.jpg","name":"Tie Front","title":"Trendy Style","price":19,"tags":["Sale","t-shirt"]},
+  {"id":39,"img":"new-cloths-images/garden-rose-red-pink-56866.jpeg","name":"Distressed Tee","title":"Vintage Look","price":27,"tags":["Limited","Exclusive","t-shirt"]},
+  {"id":40,"img":"new-cloths-images/how-to-generate.webp","name":"Soft Blend","title":"Comfort Fit","price":29,"tags":["Popular","t-shirt"]},
+  {"id":41,"img":"new-cloths-images/pexels-photo-1108099.jpeg","name":"Classic Pocket","title":"Casual Tee","price":33,"tags":["New","Hot","t-shirt"]},
+  {"id":42,"img":"new-cloths-images/text-to-image.webp","name":"Basic Tank","title":"Sleeveless Tee","price":20,"tags":["Budget","t-shirt"]},
+  {"id":43,"img":"new-cloths-images/pexels-photo-3680219.jpeg","name":"Color Splash","title":"Graphic Tee","price":26,"tags":["Sale","t-shirt"]},
+  {"id":44,"img":"new-cloths-images/premium_photo-1664474619075-644dd191935f.jpeg","name":"Vintage Stripes","title":"Retro Tee","price":31,"tags":["Trending","t-shirt"]},
+  {"id":45,"img":"new-cloths-images/images (1).jpeg","name":"Eco Friendly","title":"Sustainable Tee","price":24,"tags":["Limited","Popular","t-shirt"]},
+  {"id":46,"img":"new-cloths-images/images.jpeg","name":"Classic Fit","title":"Regular Tee","price":28,"tags":["New","t-shirt"]},
+  {"id":47,"img":"new-cloths-images/website.jpg","name":"Soft Touch","title":"Comfort Tee","price":35,"tags":["Exclusive","t-shirt"]},
+  {"id":48,"img":"new-cloths-images/garden-rose-red-pink-56866.jpeg","name":"Striped V-Neck","title":"Patterned Tee","price":21,"tags":["Budget","t-shirt"]},
+  {"id":49,"img":"new-cloths-images/how-to-generate.webp","name":"Retro Crop","title":"Trendy Tee","price":27,"tags":["Sale","t-shirt"]},
+  {"id":50,"img":"new-cloths-images/pexels-photo-1108099.jpeg","name":"Bold Logo","title":"Statement Tee","price":23,"tags":["Popular","Trending","t-shirt"]}
 ]

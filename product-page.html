@@ -10,11 +10,10 @@
     <link rel="stylesheet" href="responsive.css">
 </head>
 <body>
-    <header>
+    <header id="smart-header">
 
         <input type="checkbox" name="" id="toggler">
         <label for="toggler" class="fas fa-bars"></label>
-
 
         <a href="#" class="logo">Cloths <span>.</span></a>
 
@@ -26,13 +25,32 @@
             <a href="#contact">Contact</a>
         </nav>
 
-        <div class="icons">
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-shopping-cart"></a>
-            <a href="#" class="fas fa-user"></a>
+        <div class="icons-header">
+            <div class="icon-parts">
+                <a href="#" class="fas fa-heart"></a>
+            </div>
+            <div class="icon-parts icon-cart">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <span>0</span>
+            </div>
+            
+            <div class="icon-parts">
+                <a href="#" class="fas fa-user"></a>
+            </div>
         </div>
 
     </header>
+
+    <div class="cartTab">
+        <h1>Shopping Cart</h1>
+        <div class="listCart">
+            
+        </div>
+        <div class="cart-btn">
+            <button class="close">CLOSE</button>
+            <button class="checkOut">Check Out</button>
+        </div>
+    </div>
 
     <section class="header-bottom"></section>
 
@@ -41,12 +59,16 @@
     <!-- products section start -->
 
     <div class="product-page">
-        <div class="list-product-page">
-            <div class="product-page-iem">
-                <img src="" alt="">
-                <h2>NAME PRODUCT</h2>
-            </div>
-        </div>
+        <div class="filter-bar">
+  <input type="text" id="search-input" placeholder="Search products...">
+</div>
+
+
+<div class="listProduct"></div>
+<div id="pagination-controls"></div>
+
+
+<div id="tag-buttons"></div>
     </div>
 
     <!-- products section end -->

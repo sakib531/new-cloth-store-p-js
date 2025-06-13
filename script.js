@@ -1,5 +1,10 @@
 let products = [];
 let cart = [];
+const productsPerPage = 8;
+let filteredData = [];
+let currentPage = 1;
+let searchQuery = '';
+let selectedTag = null;
 
 const carousel = document.querySelector(".carousel") || null;
 const wrapper = document.querySelector(".wrapper") || null;
@@ -10,6 +15,8 @@ const body = document.querySelector("body");
 const cartTab = document.querySelector(".cartTab");
 const header = document.getElementById("smart-header");
 const closeCart = document.querySelector(".close");
+const productPage = document.querySelector(".listProduct")
+const filterBar = document.querySelector(".filter-bar");
 
 // === PRODUCT DESCRIPTION PAGE LOGIC ===
 document.addEventListener("DOMContentLoaded", () => {
@@ -67,6 +74,153 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
+
+// Load JSON data
+if (productPage) {
+  fetch("products.json")
+    .then(res => res.json())
+    .then(data => {
+      products = data;
+      filteredData = [...products];
+      setupTagButtons();
+      applyFilters();
+
+      if (localStorage.getItem("cart")) {
+        cart = JSON.parse(localStorage.getItem("cart"));
+        updateCart();
+      }
+    })
+    .catch(err => console.error("Error loading products:", err));
+}
+
+// Show products per page (uses your card format)
+function displayProducts(page) {
+  const start = (page - 1) * productsPerPage;
+  const end = start + productsPerPage;
+  const currentProducts = filteredData.slice(start, end);
+
+  productPage.innerHTML = "";
+  currentProducts.forEach(product => {
+    const productCard = document.createElement("div");
+    productCard.className = "product-card";
+    productCard.setAttribute("data-href", `product-description.html?id=${product.id}`);
+
+    productCard.innerHTML = `
+      <div class="product-page-img">
+        <img src="${product.img}" alt="${product.name}">
+      </div>
+      <div>
+        <h2>${product.name}</h2>
+        <span>${product.title}</span>
+        <button class="addCart">Add To Cart</button>
+      </div>
+    `;
+
+    productCard.querySelector(".addCart").addEventListener("click", e => {
+      e.stopPropagation();
+      addToCart(product.id);
+    });
+
+    productCard.addEventListener("click", () => {
+      window.location.href = `product-description.html?id=${product.id}`;
+    });
+
+    productPage.appendChild(productCard);
+  });
+}
+
+// Tag filter setup
+function setupTagButtons() {
+  const tagContainer = document.getElementById("tag-buttons");
+  tagContainer.innerHTML = '';
+
+  const allTags = new Set(products.flatMap(p => p.tags || []));
+  const allBtn = document.createElement("button");
+  allBtn.textContent = "All";
+  allBtn.className = selectedTag === null ? 'active-tag' : '';
+  allBtn.addEventListener("click", () => {
+    selectedTag = null;
+    applyFilters();
+  });
+  tagContainer.appendChild(allBtn);
+
+  allTags.forEach(tag => {
+    const btn = document.createElement("button");
+    btn.textContent = tag;
+    btn.className = selectedTag === tag ? 'active-tag' : '';
+    btn.addEventListener("click", () => {
+      selectedTag = tag;
+      applyFilters();
+    });
+    tagContainer.appendChild(btn);
+  });
+}
+
+// Apply search & tag filters
+function applyFilters() {
+  filteredData = products.filter(product => {
+    const matchesTag = selectedTag ? product.tags?.includes(selectedTag) : true;
+    const query = searchQuery.toLowerCase();
+    const matchesSearch = searchQuery
+      ? product.name.toLowerCase().includes(query) ||
+        product.title.toLowerCase().includes(query) ||
+        product.tags?.some(tag => tag.toLowerCase().includes(query))
+      : true;
+    return matchesTag && matchesSearch;
+  });
+
+  currentPage = 1;
+  displayProducts(currentPage);
+  setupPaginationControls();
+  setupTagButtons(); // update active state
+}
+
+// Pagination setup
+function setupPaginationControls() {
+  const totalPages = Math.ceil(filteredData.length / productsPerPage);
+  const controls = document.getElementById("pagination-controls");
+  let html = '';
+
+  if (currentPage > 1) html += `<a href="#" data-page="${currentPage - 1}">&lt;</a>`;
+
+  if (currentPage > 3) {
+    html += `<a href="#" data-page="1">1</a>`;
+    if (currentPage > 4) html += `<span>...</span>`;
+  }
+
+  const startPage = Math.max(1, currentPage - 1);
+  const endPage = Math.min(totalPages, currentPage + 1);
+
+  for (let i = startPage; i <= endPage; i++) {
+    html += `<a href="#" data-page="${i}" style="${i === currentPage ? 'font-weight: bold;' : ''}">${i}</a>`;
+  }
+
+  if (currentPage < totalPages - 2) {
+    if (currentPage < totalPages - 3) html += `<span>...</span>`;
+    html += `<a href="#" data-page="${totalPages}">${totalPages}</a>`;
+  }
+
+  if (currentPage < totalPages) html += `<a href="#" data-page="${currentPage + 1}">&gt;</a>`;
+
+  controls.innerHTML = html;
+
+  controls.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      currentPage = parseInt(e.target.dataset.page);
+      displayProducts(currentPage);
+      setupPaginationControls();
+    });
+  });
+}
+
+// Search input
+document.getElementById("search-input").addEventListener("input", function () {
+  searchQuery = this.value.toLowerCase();
+  applyFilters();
+});
+
 
 // === CAROUSEL HOMEPAGE LOGIC ===
 if (document.querySelector(".carousel")) {
@@ -229,6 +383,9 @@ function syncCartWithHeader() {
     const offset = headerHeight + translateY;
     cartTab.style.top = `${offset}px`;
     cartTab.style.height = `calc(100% - ${offset}px)`;
+
+    filterBar.style.top = `${offset}px`;
+    filterBar.style.height = `calc(100% - ${offset}px)`;
 
     requestAnimationFrame(update);
   };
